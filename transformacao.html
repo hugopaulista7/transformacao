@@ -1,0 +1,44 @@
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Hugo Paulista">
+    <meta name="description" content="Transformação de pontos.">
+    <title>Transformação</title>
+</head>
+<body>
+    <header>
+        <h4>
+            Transformação de pontos refletidos em torno do eixo Y e rotacionados 45º
+        </h4>
+    </header>
+
+    <form id="form">
+        <input type="text" name="x" id="x" placeholder="X">
+        <input type="text" name="y" id="y" placeholder="Y">
+        <input type="submit" value="Calcular">
+    </form>
+    <div id="result"></div>
+</body>
+
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<script src="node_modules/mathjs/dist/math.js"></script>
+<script>
+    $('#form').on('submit', function() {
+        
+        var x = $('#x').val() * (-1);
+        var y = $('#y').val() * (-1);
+
+        var resultX = (x * (Math.sqrt(2) / 2) - y * (Math.sqrt(3) / 2)).toPrecision(2);
+        var resultY = (x * (Math.sqrt(3) / 2) + y * (Math.sqrt(2) / 2)).toPrecision(2);
+
+        var result = "<strong>X</strong> :" + resultX + " <strong>Y</strong>: " + resultY;
+        $('#result').append(result);
+        $('#result').append('<br>');
+        $('#result').append('<br>');
+        $('#result').append('<br>');
+        return false;
+    });
+</script>
+</html>
