@@ -28,12 +28,15 @@
     $('#form').on('submit', function() {
         
         var x = $('#x').val() * (-1);
-        var y = $('#y').val() * (-1);
+        var y = $('#y').val();
+        var array = ['A', 'B ', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+        var index = 0;
 
         var resultX = (x * (Math.sqrt(2) / 2) - y * (Math.sqrt(3) / 2)).toPrecision(2);
         var resultY = (x * (Math.sqrt(3) / 2) + y * (Math.sqrt(2) / 2)).toPrecision(2);
 
-        var result = "<strong>X</strong> :" + resultX + " <strong>Y</strong>: " + resultY;
+        var result = array[index] + " <strong>X</strong> :" + resultX + " <strong>Y</strong>: " + resultY;
+        index++;
         $('#result').append(result);
         $('#result').append('<br>');
         $('#result').append('<br>');
