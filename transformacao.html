@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="author" content="Hugo Paulista">
+    <meta name="author" content="Hugo Paulista e Emanuele Nicole">
     <meta name="description" content="Transformação de pontos.">
     <title>Transformação</title>
 </head>
@@ -26,21 +26,32 @@
 <script src="node_modules/mathjs/dist/math.js"></script>
 <script>
     $('#form').on('submit', function() {
-        
+        //Aqui o X do ponto está sendo multiplicado por -1 (transformação do primeiro para o segundo quadrante);
         var x = $('#x').val() * (-1);
         var y = $('#y').val();
-        var array = ['A', 'B ', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-        var index = 0;
+        
+        //Vetor apenas usado para nomear os pontos
+        var array = [
+            'A', 'B ', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+            'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+        ];
 
+        var index = 0;
+        //Aplicação da formula nos pontos
+
+        //X * Cos 45º - Y * Sen 45°
         var resultX = (x * (Math.sqrt(2) / 2) - y * (Math.sqrt(3) / 2)).toPrecision(2);
+
+        //X * Sen 45° + Y Cos 45°
         var resultY = (x * (Math.sqrt(3) / 2) + y * (Math.sqrt(2) / 2)).toPrecision(2);
 
+        //String contendo o resultado
         var result = array[index] + " <strong>X</strong> :" + resultX + " <strong>Y</strong>: " + resultY;
         index++;
+        
+        //Exibindo o resultado na tela
         $('#result').append(result);
-        $('#result').append('<br>');
-        $('#result').append('<br>');
-        $('#result').append('<br>');
+        $('#result').append('<br>'); //Quebra de linha
         return false;
     });
 </script>
